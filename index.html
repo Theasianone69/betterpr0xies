@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clever | Log in</title>
+    
+    <link rel="icon" type="image/png" href="https://thegamewebsite.github.io/logo.png?v=13">
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: #000;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .master-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+        }
+
+        /* --- Header Navigation (Added Home Button) --- */
+        .header-nav {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .back-home-link {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 12px;
+            text-transform: uppercase;
+            padding: 8px 15px;
+            border: 1px solid #ffffff;
+            border-radius: 20px;
+            transition: 0.3s;
+            opacity: 0.6;
+        }
+
+        .back-home-link:hover {
+            opacity: 1;
+            background: #ffffff;
+            color: #000;
+        }
+
+        .header-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 50px;
+            width: 100%;
+        }
+
+        .main-header {
+            font-size: 54px;
+            font-weight: 900;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            text-align: center;
+            background: linear-gradient(#fff, #555);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
+            margin: 0;
+        }
+
+        /* Status Light Styling */
+        .status-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .status-light {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #555; 
+            box-shadow: 0 0 5px rgba(255,255,255,0.2);
+            transition: 0.3s;
+        }
+
+        .status-online { background-color: #00ff00; box-shadow: 0 0 12px #00ff00; }
+        .status-idle { background-color: #ffaa00; box-shadow: 0 0 12px #ffaa00; }
+        .status-offline { background-color: #ff0000; box-shadow: 0 0 12px #ff0000; }
+        .status-text { font-size: 10px; color: #888; letter-spacing: 2px; text-transform: uppercase; }
+
+        .scramjet-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid #fff;
+            padding: 30px 60px;
+            border-radius: 20px;
+            text-align: center;
+            transition: 0.4s;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(255,255,255,0.1);
+        }
+
+        .scramjet-box:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255,255,255,0.2);
+        }
+
+        .scramjet-title {
+            font-size: 42px;
+            font-weight: 900;
+            margin: 0;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .dashboard-grid {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 280px;
+            text-align: center;
+            padding: 25px;
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        h2 { font-size: 20px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; }
+        .rammerhead-col { background: rgba(40, 40, 40, 0.5); border: 1px solid #333; }
+        .rammerhead-btn { background-color: #333; color: #fff; border: 1px solid #444; padding: 12px; font-weight: bold; border-radius: 5px; cursor: pointer; transition: 0.2s; text-transform: uppercase; }
+        .utopia-col { background: rgba(48, 43, 99, 0.3); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); }
+        .utopia-btn { background-color: rgba(255, 255, 255, 0.1); color: #fff; border: 1px solid rgba(255, 255, 255, 0.2); padding: 14px; font-weight: 600; border-radius: 8px; cursor: pointer; transition: 0.3s; text-transform: uppercase; }
+        .doge-col { background: rgba(44, 30, 5, 0.5); border: 1px solid #5e4218; }
+        .doge-btn { background-color: #3d2b0e; color: #ffb347; border: 2px solid #5e4218; padding: 14px; font-weight: bold; border-radius: 12px; cursor: pointer; transition: 0.3s; text-transform: uppercase; }
+
+    </style>
+</head>
+<body>
+
+    <div class="master-wrapper">
+        <div class="header-nav">
+            <a href="https://realhome-74e.pages.dev/" class="back-home-link">← Home</a>
+            <div style="width: 70px;"></div> </div>
+
+        <div class="header-container">
+            <h1 class="main-header">PROXY LINKS</h1>
+            
+            <div class="scramjet-box" id="scramjet-trigger" onclick="launch('Scramjet', 'https://superdupereducational.onrender.com/')">
+                <h2 class="scramjet-title">SCRAMJET</h2>
+                <div class="status-container">
+                    <div id="scramjet-light" class="status-light"></div>
+                    <span id="scramjet-status-text" class="status-text">Detecting Server...</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="column rammerhead-col">
+                <h2>Rammerhead</h2>
+                <button class="rammerhead-btn" onclick="launch('Method 1', 'https://shorturl.at/xYJ2i')">Method 1</button>
+                <button class="rammerhead-btn" onclick="launch('Method 2', 'https://shorturl.at/sGcBw')">Method 2</button>
+            </div>
+
+            <div class="column utopia-col">
+                <h2 style="color: #999;">Utopia</h2>
+                <button class="utopia-btn" onclick="launch('Method 1', 'https://vocab.clever.jaytex.org/')">Method 1</button>
+                <button class="utopia-btn" onclick="launch('Method 2', 'https://food.fit-tw.com/')">Method 2</button>
+                <button class="utopia-btn" onclick="launch('Method 3', 'https://calculator.hotelconsuladoinn.com/')">Method 3</button>
+            </div>
+
+            <div class="column doge-col">
+                <h2 style="color: #ffb347;">Doge Unblocker</h2>
+                <button class="doge-btn" onclick="launch('Method 1', 'https://educationate.space.cdn.cloudflare.net/')">Method 1</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const RENDER_URL = 'https://superdupereducational.onrender.com/';
+
+        async function checkStatus() {
+            const light = document.getElementById('scramjet-light');
+            const text = document.getElementById('scramjet-status-text');
+
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 6000);
+
+            try {
+                const response = await fetch(RENDER_URL, { 
+                    mode: 'no-cors', 
+                    cache: 'no-cache',
+                    signal: controller.signal 
+                });
+
+                light.className = 'status-light status-online';
+                text.innerText = 'Online - Ready to launch';
+            } catch (error) {
+                if (error.name === 'AbortError') {
+                    light.className = 'status-light status-idle';
+                    text.innerText = 'Idle - Waking Up...';
+                } else {
+                    light.className = 'status-light status-offline';
+                    text.innerText = 'Offline - Server Error';
+                }
+            } finally {
+                clearTimeout(timeoutId);
+            }
+        }
+
+        checkStatus();
+        setInterval(checkStatus, 30000);
+
+        function launch(name, url) {
+            if (url.includes('onrender.com')) {
+                window.open(url, '_blank');
+                return;
+            }
+
+            const newTab = window.open('about:blank', '_blank');
+            if (!newTab) {
+                alert('Popup blocked!');
+                return;
+            }
+
+            const content = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>Clever | Log in</title>
+                    <link rel="icon" type="image/png" href="https://thegamewebsite.github.io/logo.png">
+                    <style>
+                        body, html { margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; background: #000; font-family: sans-serif; }
+                        iframe { border: none; width: 100%; height: 100%; }
+                        .back-btn {
+                            position: fixed; top: 15px; left: 15px;
+                            padding: 8px 16px; background: rgba(0, 0, 0, 0.5);
+                            color: white; border: 1px solid rgba(255, 255, 255, 0.2);
+                            border-radius: 20px; cursor: pointer; z-index: 99999;
+                            font-weight: bold; text-decoration: none; backdrop-filter: blur(4px);
+                            font-size: 13px; transition: 0.2s;
+                        }
+                        .back-btn:hover { background: rgba(255, 255, 255, 0.2); }
+                    </style>
+                </head>
+                <body>
+                    <a href="https://newhometesting.pages.dev/proxies" class="back-btn">← Back to List</a>
+                    <iframe src="${url}"></iframe>
+                </body>
+                </html>`;
+
+            newTab.document.open();
+            newTab.document.write(content);
+            newTab.document.close();
+        }
+    </script>
+</body>
+</html>
